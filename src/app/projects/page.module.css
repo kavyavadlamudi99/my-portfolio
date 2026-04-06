@@ -1,0 +1,444 @@
+.projects {
+  min-height: 100vh;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.headerGlow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.pageTitle {
+  font-size: clamp(2.5rem, 6vw, 4rem) !important;
+  margin-bottom: var(--spacing-md);
+}
+
+.pageDescription {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  max-width: 650px;
+  line-height: 1.7;
+}
+
+/* ==================== FILTERS ==================== */
+.filters {
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 72px;
+  z-index: 50;
+  background: rgba(5, 10, 24, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filterButtons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  overflow: hidden;
+}
+
+.filterBtn:hover {
+  color: var(--color-text-primary);
+}
+
+.filterBtn.active {
+  color: white;
+  border-color: transparent;
+}
+
+.filterActiveBackground {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  border-radius: 100px;
+  z-index: -1;
+}
+
+.filterText {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================== GRID ==================== */
+.gridSection {
+  padding: var(--spacing-xl) 0 var(--spacing-3xl);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--spacing-md);
+}
+
+/* ==================== PROJECT CARD ==================== */
+.projectCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardCategory {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.75rem;
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 100px;
+}
+
+.cardArrow {
+  font-size: 1.25rem;
+  color: var(--color-text-tertiary);
+  transition: var(--transition);
+}
+
+.projectCard:hover .cardArrow {
+  color: var(--color-accent);
+  transform: translate(2px, -2px);
+}
+
+.cardTitle {
+  font-size: 1.375rem;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.cardDesc {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.cardImpact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+}
+
+.cardImpactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.cardImpactDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+.cardTechs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.cardTech {
+  font-size: 0.6875rem;
+  padding: 0.25rem 0.625rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 24, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--spacing-md);
+  overflow-y: auto;
+}
+
+.modalContent {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.closeBtn {
+  position: sticky;
+  top: var(--spacing-md);
+  float: right;
+  margin: var(--spacing-md);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modalInner {
+  padding: var(--spacing-xl);
+  padding-top: 0;
+}
+
+/* Modal Header */
+.modalHeader {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modalCategory {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.375rem 0.875rem;
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 100px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.modalTitle {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.modalDesc {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* Modal Grid */
+.modalGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.modalSection {
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.modalSectionIcon {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.modalSectionTitle {
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.modalSectionContent {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* Impact */
+.modalImpact {
+  margin-bottom: var(--spacing-lg);
+}
+
+.impactCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: var(--spacing-sm);
+}
+
+.impactCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  border-radius: var(--radius);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+.impactCheck {
+  color: var(--color-cyan);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Features */
+.modalFeatures {
+  margin-bottom: var(--spacing-lg);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: var(--spacing-sm);
+}
+
+.featureItem {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.featureArrow {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Tech */
+.modalTech {
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.modalTechTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--spacing-sm);
+}
+
+.modalTechTag {
+  font-size: 0.8125rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  transition: var(--transition);
+}
+
+.modalTechTag:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Scrollbar */
+.modalContent::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: var(--color-surface-elevated);
+  border-radius: 2px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    padding: 0;
+  }
+
+  .modalContent {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .modalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    position: relative;
+    top: 0;
+  }
+}
